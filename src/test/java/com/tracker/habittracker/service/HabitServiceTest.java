@@ -22,6 +22,9 @@ class HabitServiceTest {
     @Mock
     private HabitRepository habitRepository;
 
+    @Mock
+    private com.tracker.habittracker.repository.HabitLogRepository habitLogRepository;
+
     @InjectMocks
     private HabitService habitService;
 
@@ -84,11 +87,16 @@ class HabitServiceTest {
     @Test
     void testDeleteHabit() {
         Long habitId = 5L;
+        Habit habit = new Habit(habitId, "Test Habit", "Test Description", Frequency.DAILY);
 
-        doNothing().when(habitRepository).deleteById(habitId);
+        when(habitRepository.findById(habitId)).thenReturn(java.util.Optional.of(habit));
+        doNothing().when(habitLogRepository).deleteByHabit(habit);
+        doNothing().when(habitRepository).delete(habit);
 
         habitService.deleteHabit(habitId);
 
-        verify(habitRepository, times(1)).deleteById(habitId);
+        verify(habitRepository, times(1)).findById(habitId);
+        verify(habitLogRepository, times(1)).deleteByHabit(habit);
+        verify(habitRepository, times(1)).delete(habit);
     }
 }
