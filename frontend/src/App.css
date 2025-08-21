@@ -1,0 +1,142 @@
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.app header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.app header nav button {
+  margin-left: 0.5rem;
+}
+.active {
+  background: #646cff;
+  color: white;
+}
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.row.gap {
+  gap: 0.5rem;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.list .row {
+  justify-content: space-between;
+}
+.muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+.danger {
+  background: #dc2626;
+  color: white;
+}
+.error {
+  color: #dc2626;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+/* Calendar table layout */
+.calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px 6px; /* column gap, row gap */
+}
+.calendar-table th,
+.calendar-table td {
+  background: transparent;
+}
+.calendar-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--table-header-bg);
+  font-weight: 600;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.calendar-table tbody td {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--table-border-color);
+}
+.calendar-table td.center,
+.calendar-table th.center {
+  text-align: center;
+}
+
+/* Zebra striping for readability */
+.calendar-table tbody tr:nth-child(odd) td {
+  background: var(--table-row-alt-bg);
+}
+
+/* Theme variables (light/dark) */
+:root {
+  --table-header-bg: #f3f4f6; /* gray-100 */
+  --table-row-alt-bg: #f9fafb; /* gray-50 */
+  --table-border-color: #e5e7eb; /* gray-200 */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --table-header-bg: #111827; /* gray-900 */
+    --table-row-alt-bg: #0b1220; /* dark subtle */
+    --table-border-color: #374151; /* gray-700 */
+  }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

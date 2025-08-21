@@ -1,0 +1,15 @@
+[build]
+  base = "frontend"
+  publish = "dist"
+  command = "npm ci && npm run build"
+
+[build.environment]
+  # Set this in Netlify UI for security, or keep here for quick start
+  # VITE_API_BASE = "https://your-backend-domain"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
