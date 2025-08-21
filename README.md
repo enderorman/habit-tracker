@@ -45,8 +45,8 @@ cd habit-tracker
 
 ```bash
 docker run --name habit-db -d -p 5432:5432 \
-  -e POSTGRES_USER=enderorman \
-  -e POSTGRES_PASSWORD=art666312 \
+  -e POSTGRES_USER=your_username \
+  -e POSTGRES_PASSWORD=your_password \
   -e POSTGRES_DB=habit_tracker \
   postgres:16
 ```
@@ -154,8 +154,8 @@ Edit `src/main/resources/application.properties`:
 ```properties
 # Database
 spring.datasource.url=jdbc:postgresql://localhost:5432/habit_tracker
-spring.datasource.username=enderorman
-spring.datasource.password=art666312
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 
 # JPA
 spring.jpa.hibernate.ddl-auto=update
